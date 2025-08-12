@@ -27,9 +27,7 @@ function crearLi(texto) {
 function listaHTML() {
   lista.innerHTML = "";
   for (let i = 0; i < amigos.length; i++) {
-    let li = d.createElement("li");
-    li.textContent = amigos[i];
-    lista.appendChild(li);
+    lista.appendChild(crearLi(amigos[i]));
   }
   return;
 }
@@ -38,12 +36,11 @@ function sortearAmigo() {
   if (amigos.length !== 0) {
     lista.innerHTML = "";
     resultado.innerHTML = "";
-
     let indiceAleatorio = Math.floor(Math.random() * amigos.length);
     let nombreSorteado = amigos[indiceAleatorio];
-    let li = d.createElement("li");
-    li.textContent = `El amigo secreto sorteado es: ${nombreSorteado}`;
-    resultado.appendChild(li);
+    resultado.appendChild(
+      crearLi(`El amigo secreto sorteado es: ${nombreSorteado}`)
+    );
   } else {
     alert("No has ingresado nombres para sortear.");
   }
